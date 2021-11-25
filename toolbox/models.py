@@ -1,3 +1,5 @@
 from django.db import models
 
-# Create your models here.
+
+class Option(models.Model):
+    text = models.TextField(default="Something is here")
