@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-gpf(q7+!)z2)6l^mpcsu%dh6yvq1j29)+m33ldkaln_@kj1mb6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['gdstoolbox.herokuapp.com']
+ALLOWED_HOSTS = ['gdstoolbox.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -129,8 +129,9 @@ STATICFILES_DIRS = (
 )
 
 #  Add configuration for static files storage using whitenoise
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#whitenoise.django.GzipManifestStaticFilesStorage
 
 STATIC_URL = '/static/'
 
