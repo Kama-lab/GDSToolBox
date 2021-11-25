@@ -1,1 +1,1 @@
-web:gunicorn gdstoolbox.wsgi --log-file -
+web: gunicorn --pythonpath gdstoolbox.wsgi --log-file -
