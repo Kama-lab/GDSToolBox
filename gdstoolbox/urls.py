@@ -15,7 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import url, include
+from toolbox.views import OptionViewSet
+from toolbox import views
+from rest_framework import routers
+from django.views.generic.base import TemplateView
+
+router = routers.DefaultRouter()
+router.register(r'post',OptionViewSet)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    url(r'^admin/', admin.site.urls),
+    url(r'^api/',include(router.urls)),
+    url(r'^$',views.home_page)
 ]

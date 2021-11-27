@@ -6,7 +6,6 @@ with open('ignore_req_packages.txt') as f2:
 
 m = line2
 print(len(line))
-m = []
 
 for l in m:
     for l2 in line2:
