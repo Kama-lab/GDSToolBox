@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+{% load static%}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500&display=swap" rel="stylesheet">
+  <title>Bootstrap 4, from LayoutIt!</title>
+  <link href="{% static 'style/main.css' %}" rel="stylesheet">
+  <link href="{% static 'style/popup-window.css' %}" rel="stylesheet">
+  <link href="{% static 'style/slider.css' %}" rel="stylesheet">
+  <link
+  href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css"
+  rel="stylesheet"  type='text/css'>
+  <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  <div class="flex-container">
+    <div class="row top">
+      <div class="switch">
+        <label>
+          <input type="checkbox" checked>
+          <span class="slider round"></span>
+        </label>
+      </div>
+
+
+      <div class="badge"><a href="/">
+          <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="yellow" class="bi bi-boxes" viewBox="0 0 16 16">
+            <path
+              d="M7.752.066a.5.5 0 0 1 .496 0l3.75 2.143a.5.5 0 0 1 .252.434v3.995l3.498 2A.5.5 0 0 1 16 9.07v4.286a.5.5 0 0 1-.252.434l-3.75 2.143a.5.5 0 0 1-.496 0l-3.502-2-3.502 2.001a.5.5 0 0 1-.496 0l-3.75-2.143A.5.5 0 0 1 0 13.357V9.071a.5.5 0 0 1 .252-.434L3.75 6.638V2.643a.5.5 0 0 1 .252-.434L7.752.066ZM4.25 7.504 1.508 9.071l2.742 1.567 2.742-1.567L4.25 7.504ZM7.5 9.933l-2.75 1.571v3.134l2.75-1.571V9.933Zm1 3.134 2.75 1.571v-3.134L8.5 9.933v3.134Zm.508-3.996 2.742 1.567 2.742-1.567-2.742-1.567-2.742 1.567Zm2.242-2.433V3.504L8.5 5.076V8.21l2.75-1.572ZM7.5 8.21V5.076L4.75 3.504v3.134L7.5 8.21ZM5.258 2.643 8 4.21l2.742-1.567L8 1.076 5.258 2.643ZM15 9.933l-2.75 1.571v3.134L15 13.067V9.933ZM3.75 14.638v-3.134L1 9.933v3.134l2.75 1.571Z" />
+          </svg></a>
+        <div class="logo-text">
+          <a href="/"><h1>ToolBox</h1></a>
+        </div>
+      </div>
+
+    </div>
+    <div class="row content">
+
+      <div class="col input-box">
+        <div class="input-box-inner">
+          <div class="bar">
+            <button class="tab Apollo" onclick="switchEnv('Apollo')">ITA Matrix</button>
+            <button class="tab Sabre" onclick="switchEnv('Sabre')">Cheapoair</button>
+            <button class="tab Galileo" onclick="switchEnv('Galileo')">JustFly</button>
+            <button class="tab Amadeus" onclick="switchEnv('Amadeus')">Googleflights</button>
+          </div>
+
+          <form id="text-form" action="/process/" method="GET">
+
+            <div class="input-row text-field">
+
+              <textarea id="textarea" name="text" rows="12" cols="27" required></textarea>
+              {% csrf_token %}
+            </div>
+
+            <div class="input-row submit-button">
+              <input type="submit" value="submit">
+              <input type="reset" id="clear-button" value="CLEAR" name="clear" />
+            </div>
+
+
+
+          </form>
+        </div>
+      </div>
+
+      <div class="col center-box">
+
+        <!-- <span class="run-button"><a href="javascript:submitForm()"></a></span> -->
+
+
+      </div>
+
+      <div class="col output-box">
+        <div class="copy-button">
+          <button id="clipboard" onclick="copyToClipboard()" name="button">copy</button>
+        </div>
+
+        <div id="output_text" class="output-row output-text">
+          <!-- {{form.input_text}} -->
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="row footer">
+
+      <div class="disclaimer">
+        *The flight options found in ITA Matrix, Cheapoair.com, Googleflights.com or Justfly.com can be converted into GDS format
+        by copying the flight details directly from website mentioned above,pasting it in the box and running the app to receive GDS formatted flight segments.
+
+      </div>
+      <div class="report">
+        <!-- Trigger/Open The Modal -->
+        <a href="javascript:openPopup()">Report an issue</a>
+
+        <!-- The Modal -->
+        <div id="popup-window" class="modal">
+
+          <!-- Modal content -->
+          <div class="modal-content">
+            <div class="close-box">
+              <div id="x-button-box" class="x-button-box">
+                <span class="close">&times;</span>
+              </div>
+
+            </div>
+            <div class="model-form">
+              <form class="report-form"  method="post">
+                <div class="report-textarea">
+                  <textarea type="textarea" cols="25" rows="10" name="report-textarea" placeholder="Please describe the issue"></textarea>
+                </div>
+                <div class="submit-report">
+                  <input type="submit" name="report-submit-button" value="SUBMIT">
+                </div>
+              </form>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    // function submitForm(){
+    //     console.log(document.getElementById("text-form").submit());
+    // }
+
+    function switchEnv(env) {
+      var i;
+      var x = document.getElementsByClassName("output-text");
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+      }
+      document.getElementById(env).style.display = "block";
+      document.getElementsByClassName(env).style.color = "white";
+    }
+
+    // Get the modal
+    var modal = document.getElementById("popup-window");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("report-button");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal
+    function openPopup() {
+      modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+
+  </script>
+
+<script src="{% static 'js/main.js'%}"></script>
+
+</body>
+</html>
