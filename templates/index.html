@@ -9,13 +9,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500&display=swap" rel="stylesheet">
   <title>Bootstrap 4, from LayoutIt!</title>
+  <link href="{% static 'style/loader.css' %}" rel="stylesheet">
   <link href="{% static 'style/main.css' %}" rel="stylesheet">
   <link href="{% static 'style/popup-window.css' %}" rel="stylesheet">
   <link href="{% static 'style/slider.css' %}" rel="stylesheet">
-  <link
-  href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css"
-  rel="stylesheet"  type='text/css'>
-  <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+  <link href="{% static 'style/convert_button.css' %}" rel="stylesheet">
+  <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"  type='text/css'>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -61,11 +61,8 @@
             </div>
 
             <div class="input-row submit-button">
-              <input type="submit" value="submit">
               <input type="reset" id="clear-button" value="CLEAR" name="clear" />
             </div>
-
-
 
           </form>
         </div>
@@ -73,7 +70,9 @@
 
       <div class="col center-box">
 
-        <!-- <span class="run-button"><a href="javascript:submitForm()"></a></span> -->
+      <input type="submit" name="convert" value="CONVERT" form="text-form">
+
+        <!-- <span class="run-button"><button type="button" name="button">convert</button></span> -->
 
 
       </div>
@@ -84,7 +83,7 @@
         </div>
 
         <div id="output_text" class="output-row output-text">
-          <!-- {{form.input_text}} -->
+          <div id="loader" class="lds-dual-ring"></div>
         </div>
 
       </div>
@@ -134,9 +133,12 @@
 
 
   <script>
-    // function submitForm(){
-    //     console.log(document.getElementById("text-form").submit());
-    // }
+    document.querySelectorAll('.button').forEach(button => {
+    button.addEventListener('click', e => {
+        button.classList.add('processing');
+        e.preventDefault();
+    });
+});
 
     function switchEnv(env) {
       var i;

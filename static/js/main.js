@@ -64,11 +64,16 @@ $('#text-form').on('submit', function(event){
 
 // AJAX for posting
 function process() {
-    console.log("create post is working!") // sanity check
+    console.log("create post is working!");
+
+     // sanity check
     $.ajax({
       url:'process',
       type: 'GET',
       data: {the_get: $("#textarea").val()},
+      beforeSend: function() {
+        $("#loader").css("display","block")
+      },
       success: function(json) {
         $("#textarea").val('');
         console.log(json);
@@ -77,6 +82,9 @@ function process() {
       },
       error: function(xhr,errmsg,err) {
         console.log(xhr.status + ":" + xhr.responseText);
+      },
+      complete: function() {
+        $("#loader").css("display","none")
       }
     })
     // .then(function() {

@@ -204,7 +204,8 @@ textarea:focus {
   padding-right: 5px;
 }
 
-.copy-button button[type=button] {
+
+.copy-button button {
   display: inline-block;
   outline: none;
   cursor: pointer;
@@ -227,7 +228,7 @@ textarea:focus {
   transition: background 280ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.copy-button button[type=button]:hover {
+.copy-button button:hover {
    background: #f4f4f4;
    color:black;
 }
