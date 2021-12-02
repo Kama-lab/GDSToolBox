@@ -1,0 +1,336 @@
+html,body {
+  height:100%;
+  margin:0;
+  background: #141414;
+  color:white;
+}
+@import url('https://fonts.googleapis.com/css?family=Montserrat:600&display=swap');
+
+@font-face {
+  font-family: 'MyWebFont';
+  src: url('../fonts/Outfit-Bold.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/Outfit-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/Outfit-Bold.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/Outfit-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/Outfit-Bold.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+@font-face {
+  font-family: 'ShareTechMono';
+  src: url('../fonts/ShareTechMono-Regular.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/ShareTechMono-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/ShareTechMono-Regular.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/ShareTechMono-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/ShareTechMono-Regular.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+
+.switch {
+  align-self: flex-end;
+}
+
+
+.badge {
+  display: flex;
+}
+.logo-text {
+  padding-left: 15px;
+  font-family: MyWebFont;
+}
+.logo-text a {
+  text-decoration: none;
+  color:white;
+}
+.flex-container {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  min-height: 100%;
+}
+
+.top {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+  flex:0 0 20%;
+
+}
+
+.content {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+  -webkit-flex-wrap:nowrap;
+  flex-wrap:nowrap;
+  -webkit-align-items:center;
+  align-items:center;
+  flex:0 0 60%;
+
+}
+
+
+.col {
+  align-self: stretch;
+}
+
+
+
+.input-box {
+  flex:1 1 40%;
+  background:yellow;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.input-box-inner {
+  height:100%;
+  display:-webkit-flex;
+  display:flex;
+  -webkit-flex-direction:column;
+  justify-content: center;
+  flex-direction:column;
+  align-items: flex-end;
+  background-color: green;
+  min-width: 350px;
+  max-width: 350px;
+}
+/* .input-row {
+  width:350px;
+} */
+
+
+
+
+
+textarea{
+  border-radius:10px;
+  padding: 10px;
+  color:grey;
+  outline: none;
+  background: white;
+  border:none;
+}
+.text-field textarea {
+  border-radius: 0 0 10px 10px;
+}
+textarea::-webkit-scrollbar {
+    width: 0.5em;
+}
+
+
+textarea::-webkit-scrollbar-thumb {
+  background-color: grey;
+  outline: none;
+}
+textarea:focus {
+  color:black;
+}
+
+
+
+.center-box {
+  flex:1 0 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.output-box {
+  flex:2 0 40%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  display: flex;
+  flex-direction: column;
+  padding-bottom:70px;
+  padding-top:30px;
+}
+
+.output-box p {
+  font-size: 15px;
+  padding-top:25px;
+  width:350px;
+  white-space: pre-wrap;
+}
+
+.bar {
+  min-width: 350px;
+  max-width: 350px;
+  display: flex;
+  flex-direction: row;
+}
+
+.bar button{
+  font-size: 15px;
+  height:30px;
+  background: #2C2B2B;
+  text-decoration: none;
+  outline:none;
+  color:#5B5959;
+  border:none;
+
+}
+
+}
+.bar button:active{
+  color:white;
+}
+
+.bar button:hover {
+  background: white;
+  color:black;
+
+}
+.bar button:nth-child(1){
+  border-radius: 5px 0 0 0;
+
+}
+
+.bar button:nth-child(4) {
+  border-radius: 0 5px 0 0;
+  padding-right: 5px;
+}
+
+.copy-button button[type=button] {
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  font-weight: 500;
+  border-radius: 3px;
+  padding: 0 15px;
+  border-radius: 4px;
+  color: white;
+  background: transparent;
+  line-height: 1.15;
+  font-size: 14px;
+  height: 36px;
+  word-spacing: 0px;
+  letter-spacing: .0892857143em;
+  text-decoration: none;
+  text-transform: uppercase;
+  min-width: 64px;
+  border: 1px solid white;
+  text-align: center;
+  transition: background 280ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.copy-button button[type=button]:hover {
+   background: #f4f4f4;
+   color:black;
+}
+
+
+.output-text {
+  white-space: pre-wrap;
+  margin-left:20px;
+  flex:1 0 60%;
+  font-family: ShareTechMono;
+}
+
+.output-row {
+  width:100%;
+}
+
+.footer {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: center;
+  justify-content: center;
+  align-items: center;
+  flex:0 0 20%;
+
+}
+
+.disclaimer {
+  font-size: 10px;
+  color: darkgrey;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  max-width:80%;
+}
+
+
+/* convert button */
+
+
+input[type=reset],.submit-report input[type=submit] {
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  font-weight: 500;
+  border-radius: 3px;
+  padding: 0 15px;
+  border-radius: 4px;
+  color: white;
+  background: transparent;
+  line-height: 1.15;
+  font-size: 10px;
+  height: 30px;
+  word-spacing: 0px;
+  letter-spacing: .0892857143em;
+  text-decoration: none;
+  text-transform: uppercase;
+  min-width: 50px;
+  border: 1px solid white;
+  text-align: center;
+  transition: background 280ms cubic-bezier(0.4, 0, 0.2, 1);
+
+}
+input[type=reset]:hover ,.submit-report input[type=submit]:hover{
+  background: #f4f4f4;
+  color:black;
+}
+
+.run-button{
+  margin-bottom:40px;
+  position: relative;
+  display: inline-flex;
+  width: 120px;
+  height: 55px;
+
+}
+span a{
+  font-size: 19px;
+  letter-spacing: 1px;
+  transform-style: preserve-3d;
+  transform: translateZ(-25px);
+  transition: transform .25s;
+  font-family: 'Montserrat', sans-serif;
+
+}
+span a:before,
+span a:after{
+  position: absolute;
+  content: "CONVERT";
+  height: 55px;
+  width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 5px solid yellow;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+span a:before{
+  color: #000;
+  background: yellow;
+  transform: rotateY(0deg) translateZ(25px);
+}
+span a:after{
+  color: yellow;
+  transform: rotateX(90deg) translateZ(25px);
+}
+span a:hover{
+  transform: translateZ(-25px) rotateX(-90deg);
+}

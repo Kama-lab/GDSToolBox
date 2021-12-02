@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import url, include
+from toolbox import views
+from rest_framework import routers
+
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    url(r'^admin/', admin.site.urls),
+    url(r'^$',views.home_page,name="home_page"),
+    path('process',views.show_process,name="ouput")
 ]
