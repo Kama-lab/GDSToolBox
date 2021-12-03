@@ -11,21 +11,23 @@ def home_page(request):
 def show_process(request):
     if request.method == "GET":
         input_text = request.GET.get("the_get").split('\n')
-
-        response_data = {
-            "output_text": convert_to_gds(input_text)
-        }
-        # output_text = "Hello " + str(input_text)
-        # response_data = {
-        #     "input_text":input_text,
-        #     "output_text": output_text
-        # }
+        input_type = request.GET.get("input_type")
+        gds_format = convert_to_gds(input_text,input_type)
+        if gds_format:
+            response_data = {
+                "output_text": gds_format
+            }
+        else:
+            response_data = {
+            "output_text":"Cannot convert"
+            }
+        print(response_data)
         return HttpResponse(
             json.dumps(response_data),
             content_type = "application/json"
         )
     else:
         return HttpResponse(
-            json.dumps({"output":"nothing to see"}),
+            json.dumps({"output_text":"nothing to see"}),
             content_type = "application/json"
         )

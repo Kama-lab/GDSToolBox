@@ -65,12 +65,15 @@ $('#text-form').on('submit', function(event){
 // AJAX for posting
 function process() {
     console.log("create post is working!");
-
+    console.log($('input[name="select"]:checked').attr('id'));
      // sanity check
     $.ajax({
       url:'process',
       type: 'GET',
-      data: {the_get: $("#textarea").val()},
+      data: {
+        the_get: $("#textarea").val(),
+        input_type: $('input[name="select"]:checked').attr('id')
+      },
       beforeSend: function() {
         $("#loader").css("display","block")
       },
@@ -106,4 +109,32 @@ function copyToClipboard(){
         console.log("Copy error: " + err);
     }
     $temp.remove();
+  }
+
+
+
+  const toggleSwitch = document.querySelector('.switch input[type="checkbox"]');
+
+  function switchTheme(e) {
+      if (e.target.checked) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          localStorage.setItem('theme', 'dark');
+      }
+      else {
+          document.documentElement.setAttribute('data-theme', 'light');
+          localStorage.setItem('theme', 'light');
+      }
+  }
+
+  toggleSwitch.addEventListener('change', switchTheme, false);
+
+
+  const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
+
+  if (currentTheme) {
+      document.documentElement.setAttribute('data-theme', currentTheme);
+
+      if (currentTheme === 'dark') {
+          toggleSwitch.checked = true;
+      }
   }
