@@ -117,9 +117,10 @@ def contains_fl_details(flight_route,details):
 
 
 
-def convert_to_gds(line,symbol_to_append=''):
+def convert_to_gds(line,input_type):
     line.append("--------------------")
-
+    if not (input_type == "ita"):
+        return False
     pattern = re.compile(r'\([A-Z]{3}\)')
     seg_ind = []
     segments = []
@@ -156,7 +157,7 @@ def convert_to_gds(line,symbol_to_append=''):
         f'{spaces(7,s[6])}',
         f'{s[6]}',
         f'{spaces(6,s[7])}',
-        f'{s[7]}',symbol_to_append]).upper()
+        f'{s[7]}']).upper()
 
 
     final_format = '\n'.join(list(map(format_segments,segments)))

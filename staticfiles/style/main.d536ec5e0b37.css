@@ -1,0 +1,366 @@
+:root {
+  --primary-color:#141414;
+  --secondary-color: #2C2B2B;
+  --highlight-color: yellow;
+  --text-color: white;
+  --inverse-text-color:black;
+  --border-color: transparent;
+  --selected-button:white;
+  --inactive-button: grey;
+  --textarea-bg-color:white;
+  --disclaimer-color:grey;
+}
+
+[data-theme="light"] {
+  --primary-color: white;
+  --secondary-color: grey;
+  --highlight-color: #454482;
+  --text-color: black;
+  --inverse-text-color:white;
+  --selected-button:#454482;
+  --inactive-button: white;
+  --textarea-border: 2px solid black;
+  --textarea-bg-color:#454482;
+  --disclaimer-color:black;
+}
+
+
+html,body {
+  height:100%;
+  margin:0;
+  background: var(--primary-color);
+  color:var(--text-color);
+}
+@import url('https://fonts.googleapis.com/css?family=Montserrat:600&display=swap');
+
+@font-face {
+  font-family: 'MyWebFont';
+  src: url("../fonts/Outfit-Bold.27410e123d8a.eot"); /* IE9 Compat Modes */
+  src: url("../fonts/Outfit-Bold.27410e123d8a.eot?#iefix") format('embedded-opentype'), /* IE6-IE8 */
+       url("../fonts/Outfit-Bold.7056d8e519de.woff") format('woff'), /* Modern Browsers */
+       url("../fonts/Outfit-Bold.c878bcb88f0e.ttf")  format('truetype'), /* Safari, Android, iOS */
+       url("../fonts/Outfit-Bold.8bb98cfdfd89.svg#svgFontName") format('svg'); /* Legacy iOS */
+}
+
+@font-face {
+  font-family: 'ShareTechMono';
+  src: url("../fonts/ShareTechMono-Regular.402a8c95365e.eot"); /* IE9 Compat Modes */
+  src: url("../fonts/ShareTechMono-Regular.402a8c95365e.eot?#iefix") format('embedded-opentype'), /* IE6-IE8 */
+       url("../fonts/ShareTechMono-Regular.1fe5a40dd551.woff") format('woff'), /* Modern Browsers */
+       url("../fonts/ShareTechMono-Regular.972d54ac7985.ttf")  format('truetype'), /* Safari, Android, iOS */
+       url("../fonts/ShareTechMono-Regular.7b0e8a3ea205.svg#svgFontName") format('svg'); /* Legacy iOS */
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url("../fonts/Montserrat-Regular.5b3ad248f67d.eot"); /* IE9 Compat Modes */
+  src: url("../fonts/Montserrat-Regular.5b3ad248f67d.eot?#iefix") format('embedded-opentype'), /* IE6-IE8 */
+       url("../fonts/Montserrat-Regular.c0b8804ae852.woff") format('woff'), /* Modern Browsers */
+       url("../fonts/Montserrat-Regular.ee6539921d71.ttf")  format('truetype'), /* Safari, Android, iOS */
+       url("../fonts/Montserrat-Regular.79ef1ad42efd.svg#svgFontName") format('svg'); /* Legacy iOS */
+}
+
+
+.switch {
+  align-self: flex-end;
+}
+
+
+.badge {
+  display: flex;
+}
+.logo-text {
+  padding-left: 15px;
+  font-family: MyWebFont;
+}
+.logo-text a {
+  text-decoration: none;
+  color:var(--text-color);
+}
+.flex-container {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  min-height: 100%;
+}
+
+.top {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+  flex:0 0 20%;
+
+}
+
+.content {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+  -webkit-flex-wrap:nowrap;
+  flex-wrap:nowrap;
+  -webkit-align-items:center;
+  align-items:center;
+  flex:0 0 60%;
+
+}
+
+
+.col {
+  align-self: stretch;
+}
+
+
+
+.input-box {
+  flex:1 0 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.input-box-inner {
+  flex:1 0 80%;
+  display:-webkit-flex;
+  display:flex;
+  -webkit-flex-direction:column;
+  flex-direction:column;
+  justify-content: center;
+  min-width: 350px;
+  max-width: 350px;
+  flex-shrink: 0;
+}
+/* .input-row {
+  width:350px;
+} */
+
+
+
+
+
+textarea{
+  min-height: 220px;
+  min-width: 330px;
+  max-width: 330px;
+  border-radius:10px;
+  padding: 10px;
+  color:grey;
+  outline: none;
+  background: var(--textarea-bg-color);
+  border:none;
+  border-top:0;
+
+}
+.text-field textarea {
+  border-radius: 0 0 10px 10px;
+}
+textarea::-webkit-scrollbar {
+    width: 0.5em;
+}
+
+
+textarea::-webkit-scrollbar-thumb {
+  background-color: grey;
+  outline: none;
+}
+textarea:focus {
+  color:var(--inverse-text-color);
+}
+
+
+
+.center-box {
+  flex:1 0 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.output-box {
+  flex:2 0 40%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  display: flex;
+  flex-direction: column;
+  padding-bottom:70px;
+  padding-top:30px;
+}
+
+/* ============================= */
+.bar {
+  min-width: 350px;
+  max-width: 350px;
+  display: flex;
+  flex-direction: row;
+}
+
+.bar label{
+  font-size: 14px;
+  flex-grow:1;
+  height: 30px;
+  background: var(--secondary-color);
+  text-decoration: none;
+  outline:none;
+  color:var(--inactive-button);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  font-family: Montserrat;
+}
+
+
+.bar span {
+  width:100%;
+  margin:0;
+  text-align: center;
+}
+
+.ita{
+  border-radius: 5px 0 0 0;
+
+}
+
+.googleflights {
+  border-radius: 0 5px 0 0;
+}
+
+
+
+input[type="radio"]{
+  display: none;
+}
+#ita:checked:checked ~ .ita,
+#cheapoair:checked:checked ~ .cheapoair,
+#justfly:checked:checked ~ .justfly,
+#googleflights:checked:checked ~ .googleflights{
+  background: var(--selected-button);
+}
+
+
+#ita:checked:checked ~ .ita span,
+#cheapoair:checked:checked ~ .cheapoair span,
+#justfly:checked:checked ~ .justfly span,
+#googleflights:checked:checked ~ .googleflights span{
+  color: var(--inverse-text-color);
+  background: var(--selected-button);
+}
+
+
+
+
+
+.copy-button button {
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 3px;
+  padding: 0 15px;
+  border-radius: 4px;
+  color: var(--selected-button);
+  background: transparent;
+  line-height: 1.15;
+  font-size: 14px;
+  height: 36px;
+  word-spacing: 0px;
+  letter-spacing: .0892857143em;
+  text-decoration: none;
+  text-transform: uppercase;
+  min-width: 64px;
+  border: 2px solid var(--selected-button);
+  text-align: center;
+  transition: background 280ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.copy-button button:hover {
+   background: var(--selected-button);
+   color:var(--inverse-text-color);
+}
+
+
+.output-text {
+  white-space: pre-wrap;
+  flex:1 0 60%;
+  font-family: ShareTechMono;
+  padding-top: 40px;
+}
+
+.output-row {
+  width:100%;
+}
+
+
+.footer {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: center;
+  justify-content: center;
+  align-items: center;
+  flex:0 0 20%;
+
+}
+
+.disclaimer {
+  font-size: 12px;
+  font-weight: bold;
+  color:  var(--disclaimer-color);
+  text-align: center;
+  font-family: Montserrat;
+  max-width:80%;
+}
+
+
+/* convert button */
+
+
+input[type=reset],.submit-report input[type=submit] {
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 3px;
+  padding: 0 15px;
+  border-radius: 4px;
+  color: var(--selected-button);
+  background: transparent;
+  line-height: 1.15;
+  font-size: 10px;
+  height: 30px;
+  word-spacing: 0px;
+  letter-spacing: .0892857143em;
+  text-decoration: none;
+  text-transform: uppercase;
+  min-width: 50px;
+  border: 2px solid var(--selected-button);
+  text-align: center;
+  font-family: Montserrat;
+  transition: background 280ms cubic-bezier(0.4, 0, 0.2, 1);
+
+}
+input[type=reset]:hover ,.submit-report input[type=submit]:hover{
+  background: var(--selected-button);
+  color:var(--inverse-text-color);
+  border-color:var(--selected-button);
+}
+
+.run-button{
+  margin-bottom:40px;
+  position: relative;
+  display: inline-flex;
+  width: 120px;
+  height: 55px;
+
+}

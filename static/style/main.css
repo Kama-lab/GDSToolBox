@@ -1,10 +1,30 @@
-html,body {
-  height:100%;
-  margin:0;
-  background: #141414;
-  color:white;
+:root {
+  --primary-color:#141414;
+  --secondary-color: #2C2B2B;
+  --highlight-color: yellow;
+  --text-color: white;
+  --inverse-text-color:black;
+  --border-color: transparent;
+  --selected-button:white;
+  --inactive-button: grey;
+  --textarea-bg-color:white;
+  --disclaimer-color:grey;
 }
-@import url('https://fonts.googleapis.com/css?family=Montserrat:600&display=swap');
+
+[data-theme="light"] {
+  --primary-color: white;
+  --secondary-color: grey;
+  --highlight-color: #454482;
+  --text-color: black;
+  --inverse-text-color:white;
+  --selected-button:#454482;
+  --inactive-button: white;
+  --textarea-border: 2px solid black;
+  --textarea-bg-color:#454482;
+  --disclaimer-color:black;
+}
+
+
 
 @font-face {
   font-family: 'MyWebFont';
@@ -24,6 +44,21 @@ html,body {
        url('../fonts/ShareTechMono-Regular.svg#svgFontName') format('svg'); /* Legacy iOS */
 }
 
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../fonts/Montserrat-Regular.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/Montserrat-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/Montserrat-Regular.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/Montserrat-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/Montserrat-Regular.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+html,body {
+  height:100%;
+  margin:0;
+  background: var(--primary-color);
+  color:var(--text-color);
+  font-family: Montserrat;
+}
 
 .switch {
   align-self: flex-end;
@@ -39,7 +74,7 @@ html,body {
 }
 .logo-text a {
   text-decoration: none;
-  color:white;
+  color:var(--text-color);
 }
 .flex-container {
   display: -webkit-flex;
@@ -84,24 +119,23 @@ html,body {
 
 
 .input-box {
-  flex:1 1 40%;
-  background:yellow;
+  flex:1 0 40%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: flex-end;
 }
 
 .input-box-inner {
-  height:100%;
+  flex:1 0 80%;
   display:-webkit-flex;
   display:flex;
   -webkit-flex-direction:column;
-  justify-content: center;
   flex-direction:column;
-  align-items: flex-end;
-  background-color: green;
+  justify-content: center;
   min-width: 350px;
   max-width: 350px;
+  flex-shrink: 0;
 }
 /* .input-row {
   width:350px;
@@ -112,12 +146,17 @@ html,body {
 
 
 textarea{
+  min-height: 220px;
+  min-width: 330px;
+  max-width: 330px;
   border-radius:10px;
   padding: 10px;
   color:grey;
   outline: none;
-  background: white;
+  background: var(--textarea-bg-color);
   border:none;
+  border-top:0;
+
 }
 .text-field textarea {
   border-radius: 0 0 10px 10px;
@@ -132,7 +171,7 @@ textarea::-webkit-scrollbar-thumb {
   outline: none;
 }
 textarea:focus {
-  color:black;
+  color:var(--inverse-text-color);
 }
 
 
@@ -155,13 +194,7 @@ textarea:focus {
   padding-top:30px;
 }
 
-.output-box p {
-  font-size: 15px;
-  padding-top:25px;
-  width:350px;
-  white-space: pre-wrap;
-}
-
+/* ============================= */
 .bar {
   min-width: 350px;
   max-width: 350px;
@@ -169,46 +202,72 @@ textarea:focus {
   flex-direction: row;
 }
 
-.bar button{
-  font-size: 15px;
-  height:30px;
-  background: #2C2B2B;
+.bar label{
+  font-size: 14px;
+  flex-grow:1;
+  height: 30px;
+  background: var(--secondary-color);
   text-decoration: none;
   outline:none;
-  color:#5B5959;
-  border:none;
+  color:var(--inactive-button);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 
 }
 
-}
-.bar button:active{
-  color:white;
+
+.bar span {
+  width:100%;
+  margin:0;
+  text-align: center;
 }
 
-.bar button:hover {
-  background: white;
-  color:black;
-
-}
-.bar button:nth-child(1){
+.ita{
   border-radius: 5px 0 0 0;
 
 }
 
-.bar button:nth-child(4) {
+.googleflights {
   border-radius: 0 5px 0 0;
-  padding-right: 5px;
 }
 
-.copy-button button[type=button] {
+
+
+input[type="radio"]{
+  display: none;
+}
+#ita:checked:checked ~ .ita,
+#cheapoair:checked:checked ~ .cheapoair,
+#justfly:checked:checked ~ .justfly,
+#googleflights:checked:checked ~ .googleflights{
+  background: var(--selected-button);
+}
+
+
+#ita:checked:checked ~ .ita span,
+#cheapoair:checked:checked ~ .cheapoair span,
+#justfly:checked:checked ~ .justfly span,
+#googleflights:checked:checked ~ .googleflights span{
+  color: var(--inverse-text-color);
+  background: var(--selected-button);
+}
+
+
+
+
+
+.copy-button button {
   display: inline-block;
   outline: none;
   cursor: pointer;
-  font-weight: 500;
+  font-weight: bold;
   border-radius: 3px;
   padding: 0 15px;
   border-radius: 4px;
-  color: white;
+  color: var(--selected-button);
   background: transparent;
   line-height: 1.15;
   font-size: 14px;
@@ -218,27 +277,28 @@ textarea:focus {
   text-decoration: none;
   text-transform: uppercase;
   min-width: 64px;
-  border: 1px solid white;
+  border: 2px solid var(--selected-button);
   text-align: center;
   transition: background 280ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.copy-button button[type=button]:hover {
-   background: #f4f4f4;
-   color:black;
+.copy-button button:hover {
+   background: var(--selected-button);
+   color:var(--inverse-text-color);
 }
 
 
 .output-text {
   white-space: pre-wrap;
-  margin-left:20px;
   flex:1 0 60%;
   font-family: ShareTechMono;
+  padding-top: 40px;
 }
 
 .output-row {
   width:100%;
 }
+
 
 .footer {
   display: -webkit-flex;
@@ -253,10 +313,11 @@ textarea:focus {
 }
 
 .disclaimer {
-  font-size: 10px;
-  color: darkgrey;
+  font-size: 12px;
+  font-weight: bold;
+  color:  var(--disclaimer-color);
   text-align: center;
-  font-family: 'Montserrat', sans-serif;
+
   max-width:80%;
 }
 
@@ -268,11 +329,11 @@ input[type=reset],.submit-report input[type=submit] {
   display: inline-block;
   outline: none;
   cursor: pointer;
-  font-weight: 500;
+  font-weight: bold;
   border-radius: 3px;
   padding: 0 15px;
   border-radius: 4px;
-  color: white;
+  color: var(--selected-button);
   background: transparent;
   line-height: 1.15;
   font-size: 10px;
@@ -282,14 +343,16 @@ input[type=reset],.submit-report input[type=submit] {
   text-decoration: none;
   text-transform: uppercase;
   min-width: 50px;
-  border: 1px solid white;
+  border: 2px solid var(--selected-button);
   text-align: center;
+
   transition: background 280ms cubic-bezier(0.4, 0, 0.2, 1);
 
 }
 input[type=reset]:hover ,.submit-report input[type=submit]:hover{
-  background: #f4f4f4;
-  color:black;
+  background: var(--selected-button);
+  color:var(--inverse-text-color);
+  border-color:var(--selected-button);
 }
 
 .run-button{
@@ -299,38 +362,4 @@ input[type=reset]:hover ,.submit-report input[type=submit]:hover{
   width: 120px;
   height: 55px;
 
-}
-span a{
-  font-size: 19px;
-  letter-spacing: 1px;
-  transform-style: preserve-3d;
-  transform: translateZ(-25px);
-  transition: transform .25s;
-  font-family: 'Montserrat', sans-serif;
-
-}
-span a:before,
-span a:after{
-  position: absolute;
-  content: "CONVERT";
-  height: 55px;
-  width: 120px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 5px solid yellow;
-  box-sizing: border-box;
-  border-radius: 5px;
-}
-span a:before{
-  color: #000;
-  background: yellow;
-  transform: rotateY(0deg) translateZ(25px);
-}
-span a:after{
-  color: yellow;
-  transform: rotateX(90deg) translateZ(25px);
-}
-span a:hover{
-  transform: translateZ(-25px) rotateX(-90deg);
 }
