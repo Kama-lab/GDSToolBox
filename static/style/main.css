@@ -25,13 +25,6 @@
 }
 
 
-html,body {
-  height:100%;
-  margin:0;
-  background: var(--primary-color);
-  color:var(--text-color);
-}
-@import url('https://fonts.googleapis.com/css?family=Montserrat:600&display=swap');
 
 @font-face {
   font-family: 'MyWebFont';
@@ -59,7 +52,13 @@ html,body {
        url('../fonts/Montserrat-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
        url('../fonts/Montserrat-Regular.svg#svgFontName') format('svg'); /* Legacy iOS */
 }
-
+html,body {
+  height:100%;
+  margin:0;
+  background: var(--primary-color);
+  color:var(--text-color);
+  font-family: Montserrat;
+}
 
 .switch {
   align-self: flex-end;
@@ -71,7 +70,7 @@ html,body {
 }
 .logo-text {
   padding-left: 15px;
-
+  font-family: MyWebFont;
 }
 .logo-text a {
   text-decoration: none;
@@ -292,7 +291,7 @@ input[type="radio"]{
 .output-text {
   white-space: pre-wrap;
   flex:1 0 60%;
-
+  font-family: ShareTechMono;
   padding-top: 40px;
 }
 
