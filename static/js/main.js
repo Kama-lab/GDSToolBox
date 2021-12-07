@@ -64,8 +64,6 @@ $('#text-form').on('submit', function(event){
 
 // AJAX for posting
 function process() {
-    console.log("create post is working!");
-    console.log($('input[name="select"]:checked').attr('id'));
      // sanity check
     $.ajax({
       url:'process',

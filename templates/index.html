@@ -8,12 +8,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500&display=swap" rel="stylesheet">
-  <title>Bootstrap 4, from LayoutIt!</title>
+  <title>Toolbox</title>
   <link href="{% static 'style/loader.css' %}" rel="stylesheet">
   <link href="{% static 'style/main.css' %}" rel="stylesheet">
-  <link href="{% static 'style/popup-window.css' %}" rel="stylesheet">
   <link href="{% static 'style/slider.css' %}" rel="stylesheet">
-  <link href="{% static 'style/convert_button.css' %}" rel="stylesheet">
   <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" type='text/css'>
   <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 </head>
@@ -65,17 +63,6 @@
                   <span>Googleflights</span>
                 </label>
 
-            <!--
-            <input label="ITA Matrix" type = "radio" name="input-type" value="ita">
-            <input id="cheopoair" type = "radio" name="input-type"  label="Cheapoair" value="cheopoair">
-            <input id="justfly" type = "radio" name="input-type"  label="JustFly" value="justfly">
-            <input id="googleflights" type = "radio" name="input-type"  label="Googleflights" value="googleflights">
-
- -->
-            <!-- <button class="tab Apollo" onclick="switchEnv('Apollo')">ITA Matrix</button>
-            <button class="tab Sabre" onclick="switchEnv('Sabre')">Cheapoair</button>
-            <button class="tab Galileo" onclick="switchEnv('Galileo')">JustFly</button>
-            <button class="tab Amadeus" onclick="switchEnv('Amadeus')">Googleflights</button> -->
           </div>
 
           <form id="text-form" action="/process/" method="GET">
@@ -123,37 +110,6 @@
         by copying the flight details directly from website mentioned above,pasting it in the box and running the app to receive GDS formatted flight segments.
 
       </div>
-      <div class="report">
-        <!-- Trigger/Open The Modal -->
-        <a href="javascript:openPopup()">Report an issue</a>
-
-        <!-- The Modal -->
-        <div id="popup-window" class="modal">
-
-          <!-- Modal content -->
-          <div class="modal-content">
-            <div class="close-box">
-              <div id="x-button-box" class="x-button-box">
-                <span class="close">&times;</span>
-              </div>
-
-            </div>
-            <div class="model-form">
-              <form class="report-form" method="post">
-                <div class="report-textarea">
-                  <textarea type="textarea" cols="25" rows="10" name="report-textarea" placeholder="Please describe the issue"></textarea>
-                </div>
-                <div class="submit-report">
-                  <input type="submit" name="report-submit-button" value="SUBMIT">
-                </div>
-              </form>
-
-            </div>
-
-          </div>
-
-        </div>
-      </div>
     </div>
   </div>
 
@@ -166,41 +122,6 @@
       });
     });
 
-    function switchEnv(env) {
-      var i;
-      var x = document.getElementsByClassName("output-text");
-      for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";
-      }
-      document.getElementById(env).style.display = "block";
-      document.getElementsByClassName(env).style.color = "white";
-    }
-
-    // Get the modal
-    var modal = document.getElementById("popup-window");
-
-    // Get the button that opens the modal
-    var btn = document.getElementById("report-button");
-
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
-    // When the user clicks the button, open the modal
-    function openPopup() {
-      modal.style.display = "block";
-    }
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-      modal.style.display = "none";
-    }
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    }
   </script>
 
   <script src="{% static 'js/main.js'%}"></script>
