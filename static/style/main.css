@@ -285,6 +285,9 @@ input[type="radio"]{
 }
 
 
+
+
+
 .copy-button {
   align-self: flex-end;
   margin-right: 7vw;
@@ -292,7 +295,8 @@ input[type="radio"]{
 
 
 .copy-button button {
-  display: none;
+  visibility: hidden;
+  display: inline-block;
   outline: none;
   cursor: pointer;
   font-weight: bold;

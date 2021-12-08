@@ -80,7 +80,7 @@ function process() {
         console.log(json);
         console.log("success");
         $("#output_text").html(json.output_text);
-        $(".copy-button button").css("display","inline-block");
+        $(".copy-button button").css("visibility","visible");
       },
       error: function(xhr,errmsg,err) {
         console.log(xhr.status + ":" + xhr.responseText);
@@ -138,3 +138,16 @@ function copyToClipboard(){
           toggleSwitch.checked = true;
       }
   }
+
+
+function changePlaceholder(text) {
+  if(text != "ita") {
+    $("#textarea")[0].placeholder="Upcoming feature";
+    $("#textarea").prop("disabled",true);
+  }
+  else {
+    $("#textarea").prop("disabled",false);
+    $("#textarea")[0].placeholder="";
+  }
+
+}

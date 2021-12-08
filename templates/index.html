@@ -45,10 +45,10 @@
       <div class="col input-box">
         <div class="input-box-inner">
           <div class="bar">
-              <input type="radio" name="select" id="ita" checked>
-              <input type="radio" name="select" id="cheapoair">
-              <input type="radio" name="select" id="justfly">
-              <input type="radio" name="select" id="googleflights">
+              <input type="radio" name="select" onclick="changePlaceholder('ita')" id="ita" checked>
+              <input type="radio" name="select" onclick="changePlaceholder()" id="cheapoair">
+              <input type="radio" name="select" onclick="changePlaceholder()" id="justfly">
+              <input type="radio" name="select" onclick="changePlaceholder()" id="googleflights">
               <label for="ita" class="option ita">
                 <span>ITA Matrix</span>
               </label>
@@ -68,7 +68,7 @@
 
             <div class="input-row text-field">
 
-              <textarea id="textarea" name="text" required></textarea>
+              <textarea id="textarea" name="text" placeholder="" required></textarea>
               {% csrf_token %}
             </div>
 
@@ -114,12 +114,7 @@
 
 
   <script>
-    document.querySelectorAll('.button').forEach(button => {
-      button.addEventListener('click', e => {
-        button.classList.add('processing');
-        e.preventDefault();
-      });
-    });
+
 
   </script>
 
