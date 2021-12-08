@@ -80,6 +80,7 @@ function process() {
         console.log(json);
         console.log("success");
         $("#output_text").html(json.output_text);
+        $(".copy-button button").css("display","inline-block");
       },
       error: function(xhr,errmsg,err) {
         console.log(xhr.status + ":" + xhr.responseText);
@@ -95,14 +96,17 @@ function process() {
 };
 
 //document.getElementById("clipboard").addEventListener("onclick",copyToClipboard);
-
 function copyToClipboard(){
-    var $temp = $("<textarea />");
-    $("body").append($temp);
-    $temp.val($("#textarea").val()).select();
-    var result = false;
+  var $temp = $("<textarea>");
+  $("body").append($temp);
+  $temp.val($("#output_text").text()).select();
     try {
-        result = document.execCommand("copy");
+        document.execCommand("copy");
+        $("#clipboard").html("Coppied");
+        setTimeout(function(){
+        $("#clipboard").html("Copy");
+        },1500)
+
     } catch (err) {
         console.log("Copy error: " + err);
     }
@@ -116,11 +120,9 @@ function copyToClipboard(){
   function switchTheme(e) {
       if (e.target.checked) {
           document.documentElement.setAttribute('data-theme', 'dark');
-          localStorage.setItem('theme', 'dark');
       }
       else {
           document.documentElement.setAttribute('data-theme', 'light');
-          localStorage.setItem('theme', 'light');
       }
   }
 
