@@ -412,9 +412,9 @@ input[type=reset]:hover ,.submit-report input[type=submit]:hover{
   z-index: 9999;
   background-color: black;
 }
-.bar #bar1
+.bar1
 {
-  background-color: #819FF7;
+  background-color: yellow;
   width:0%;
   height:5px;
   border-radius: 3px;
