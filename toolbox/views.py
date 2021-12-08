@@ -8,6 +8,9 @@ import json
 def home_page(request):
     return render(request,"index.html")
 
+def mobile_page(request):
+    return render(request,"mobile.html")
+
 def show_process(request):
     if request.method == "GET":
         input_text = request.GET.get("the_get").split('\n')

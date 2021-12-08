@@ -23,5 +23,6 @@ from rest_framework import routers
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$',views.home_page,name="home_page"),
+    url(r'^mobile',views.mobile_page,name="mobile_page"),
     path('process',views.show_process,name="ouput")
 ]
