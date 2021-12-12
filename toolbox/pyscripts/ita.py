@@ -37,7 +37,9 @@ airlines_list = {
     'Korean Air':'KE',
     'Jeju Air':'7C',
     'Cayman Airways':'KX',
-    'Evelop airlines':'E9'
+    'Evelop airlines':'E9',
+    'JetBlue':'B6',
+    'Kuwait Airways': 'KU'
 }
 
 
