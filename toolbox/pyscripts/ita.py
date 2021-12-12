@@ -39,7 +39,8 @@ airlines_list = {
     'Cayman Airways':'KX',
     'Evelop airlines':'E9',
     'JetBlue':'B6',
-    'Kuwait Airways': 'KU'
+    'Kuwait Airways': 'KU',
+    'SriLankan':'UL'
 }
 
 
