@@ -8,7 +8,7 @@ airlines_list = {
     'British Airways':'BA',
     'Eva Air':'BR',
     'Brussels':'SN',
-    'Swiss':'LX',
+    'SWISS':'LX',
     'Lufthansa':'LH',
     'Alitalia':'AZ',
     'Air France':'AF',
