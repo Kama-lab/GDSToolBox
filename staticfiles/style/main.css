@@ -26,40 +26,12 @@
 
 
 html,body {
-  height:100%;
+  height:100vh;
   margin:0;
   background: var(--primary-color);
   color:var(--text-color);
+  font-family: 'Montserrat', sans-serif;
 }
-@import url('https://fonts.googleapis.com/css?family=Montserrat:600&display=swap');
-
-@font-face {
-  font-family: 'MyWebFont';
-  src: url('../fonts/Outfit-Bold.eot'); /* IE9 Compat Modes */
-  src: url('../fonts/Outfit-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../fonts/Outfit-Bold.woff') format('woff'), /* Modern Browsers */
-       url('../fonts/Outfit-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('../fonts/Outfit-Bold.svg#svgFontName') format('svg'); /* Legacy iOS */
-}
-
-@font-face {
-  font-family: 'ShareTechMono';
-  src: url('../fonts/ShareTechMono-Regular.eot'); /* IE9 Compat Modes */
-  src: url('../fonts/ShareTechMono-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../fonts/ShareTechMono-Regular.woff') format('woff'), /* Modern Browsers */
-       url('../fonts/ShareTechMono-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('../fonts/ShareTechMono-Regular.svg#svgFontName') format('svg'); /* Legacy iOS */
-}
-
-@font-face {
-  font-family: 'Montserrat';
-  src: url('../fonts/Montserrat-Regular.eot'); /* IE9 Compat Modes */
-  src: url('../fonts/Montserrat-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../fonts/Montserrat-Regular.woff') format('woff'), /* Modern Browsers */
-       url('../fonts/Montserrat-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('../fonts/Montserrat-Regular.svg#svgFontName') format('svg'); /* Legacy iOS */
-}
-
 
 .switch {
   align-self: flex-end;
@@ -71,7 +43,7 @@ html,body {
 }
 .logo-text {
   padding-left: 15px;
-  font-family: MyWebFont;
+  font-family: 'Outfit', sans-serif;
 }
 .logo-text a {
   text-decoration: none;
@@ -184,6 +156,36 @@ textarea:focus {
   align-items: center;
 }
 
+
+
+
+.center-box input {
+  border:2px solid var(--selected-button);
+  color: var(--selected-button);
+  background: transparent;
+  width:120px;
+  height:50px;
+  border-radius: 18px;
+  font-family: 'Outfit', sans-serif;
+  outline: none;
+  font-size: 20px;
+
+  transition: background 280ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.center-box input:hover {
+  color:var(--inverse-text-color);
+  border:2px solid var(--highlight-color);
+  background: var(--highlight-color);
+}
+
+.center-box input:active {
+  background: var(--secondary-color);
+  border:2px solid var(--secondary-color);
+}
+
+
+
 .output-box {
   flex:2 0 40%;
   display: flex;
@@ -216,7 +218,7 @@ textarea:focus {
   justify-content: center;
   align-items: center;
   align-content: center;
-  font-family: Montserrat;
+
 }
 
 
@@ -260,7 +262,14 @@ input[type="radio"]{
 
 
 
+.copy-button {
+  align-self: flex-end;
+  margin-right: 7vw;
+}
+
+
 .copy-button button {
+  visibility: hidden;
   display: inline-block;
   outline: none;
   cursor: pointer;
@@ -292,7 +301,7 @@ input[type="radio"]{
 .output-text {
   white-space: pre-wrap;
   flex:1 0 60%;
-  font-family: ShareTechMono;
+  font-family: 'Share Tech Mono', monospace;
   padding-top: 40px;
 }
 
@@ -318,11 +327,15 @@ input[type="radio"]{
   font-weight: bold;
   color:  var(--disclaimer-color);
   text-align: center;
-  font-family: Montserrat;
   max-width:80%;
 }
 
-
+.version {
+  font-size: 12px;
+  font-weight: bold;
+  color:  var(--disclaimer-color);
+  text-align: center;
+}
 /* convert button */
 
 
@@ -346,7 +359,7 @@ input[type=reset],.submit-report input[type=submit] {
   min-width: 50px;
   border: 2px solid var(--selected-button);
   text-align: center;
-  font-family: Montserrat;
+
   transition: background 280ms cubic-bezier(0.4, 0, 0.2, 1);
 
 }
@@ -363,4 +376,31 @@ input[type=reset]:hover ,.submit-report input[type=submit]:hover{
   width: 120px;
   height: 55px;
 
+}
+
+
+
+.progress
+{
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background-color: black;
+}
+.bar1
+{
+  background-color: yellow;
+  width:0%;
+  height:5px;
+  border-radius: 3px;
+}
+.percent
+{
+  position:absolute;
+  display:inline-block;
+  top:3px;
+  left:48%;
 }

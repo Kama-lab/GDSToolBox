@@ -327,11 +327,15 @@ input[type="radio"]{
   font-weight: bold;
   color:  var(--disclaimer-color);
   text-align: center;
-
   max-width:80%;
 }
 
-
+.version {
+  font-size: 12px;
+  font-weight: bold;
+  color:  var(--disclaimer-color);
+  text-align: center;
+}
 /* convert button */
 
 
