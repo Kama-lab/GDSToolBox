@@ -40,7 +40,8 @@ airlines_list = {
     'Evelop airlines':'E9',
     'JetBlue':'B6',
     'Kuwait Airways': 'KU',
-    'SriLankan':'UL'
+    'SriLankan':'UL',
+    'Alaska':'AS'
 }
 
 
