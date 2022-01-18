@@ -41,7 +41,8 @@ airlines_list = {
     'JetBlue':'B6',
     'Kuwait Airways': 'KU',
     'SriLankan':'UL',
-    'Alaska':'AS'
+    'Alaska':'AS',
+    'Oman Air':'WY'
 }
 
 
