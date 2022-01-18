@@ -19,6 +19,7 @@ from django.conf.urls import url, include
 from toolbox import views
 from rest_framework import routers
 
+admin.site.site_header = "Toolbox administration"
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),

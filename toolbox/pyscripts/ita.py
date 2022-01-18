@@ -1,5 +1,5 @@
 import re
-
+from ..models import Airline
 airlines_list = {
     'American':'AA',
     'Delta':'DL',
@@ -41,7 +41,8 @@ airlines_list = {
     'JetBlue':'B6',
     'Kuwait Airways': 'KU',
     'SriLankan':'UL',
-    'Alaska':'AS'
+    'Alaska':'AS',
+    'Oman Air':'WY'
 }
 
 
