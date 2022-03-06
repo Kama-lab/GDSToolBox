@@ -1,5 +1,5 @@
 from django.db import models
-from django.core.validators import 
+from django.core.validators import RegexValidator
 
 class Airline(models.Model):
     only_alpha = RegexValidator(r'^[a-zA-Z]*$','Only letters are allowed')
