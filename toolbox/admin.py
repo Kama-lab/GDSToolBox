@@ -1,4 +1,4 @@
 from django.contrib import admin
-from toolbox.models import Option
+from toolbox.models import Airline, AirlineAddRequest
 
-admin.site.register(Option)
+admin.site.register(AirlineAddRequest)
