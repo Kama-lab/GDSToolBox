@@ -7,7 +7,6 @@ airlines_list = {}
 for _,name,code in airlines:
     airlines_list[name] = code
 
-print(airlines_list)
 
 
 # airlines_list = {
@@ -54,7 +53,7 @@ print(airlines_list)
 #     'Alaska':'AS',
 #     'Oman Air':'WY'
 # }
-
+#
 
 
 
