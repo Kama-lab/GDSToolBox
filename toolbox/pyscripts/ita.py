@@ -1,49 +1,59 @@
 import re
+from .dbconnection import fetch_airline
 
-airlines_list = {
-    'American':'AA',
-    'Delta':'DL',
-    'Air Canada':'AC',
-    'United':'UA',
-    'British Airways':'BA',
-    'Eva Air':'BR',
-    'Brussels Airlines':'SN',
-    'SWISS':'LX',
-    'Lufthansa':'LH',
-    'Alitalia':'AZ',
-    'Air France':'AF',
-    'KLM':'KL',
-    'EgyptAir':'MS',
-    'Philippine Airlines':'PR',
-    'Southwest':'WN',
-    'Turkish Airlines':'TK',
-    'Ethiopian':'ET',
-    'JAL':'JL',
-    'Singapore Airlines':'SQ',
-    'ANA':'NH',
-    'Aer Lingus':'EI',
-    'Finnair':'AY',
-    'Kenya Airways':'KQ',
-    'Iberia':'IB',
-    'Vistara':'UK',
-    'Air India':'AI',
-    'Air Algerie':'AH',
-    'Qatar Airways':'QR',
-    'Tap Air Portugal':'TP',
-    'Royal Air Maroc':'AT',
-    'EVA Air':'BR',
-    'Asiana':'OZ',
-    'Etihad':'EY',
-    'Korean Air':'KE',
-    'Jeju Air':'7C',
-    'Cayman Airways':'KX',
-    'Evelop airlines':'E9',
-    'JetBlue':'B6',
-    'Kuwait Airways': 'KU',
-    'SriLankan':'UL',
-    'Alaska':'AS',
-    'Oman Air':'WY'
-}
+airlines = fetch_airline()
+print(airlines)
+airlines_list = {}
+for _,name,code in airlines:
+    airlines_list[name] = code
+
+print(airlines_list)
+
+
+# airlines_list = {
+#     'American':'AA',
+#     'Delta':'DL',
+#     'Air Canada':'AC',
+#     'United':'UA',
+#     'British Airways':'BA',
+#     'Eva Air':'BR',
+#     'Brussels Airlines':'SN',
+#     'SWISS':'LX',
+#     'Lufthansa':'LH',
+#     'Alitalia':'AZ',
+#     'Air France':'AF',
+#     'KLM':'KL',
+#     'EgyptAir':'MS',
+#     'Philippine Airlines':'PR',
+#     'Southwest':'WN',
+#     'Turkish Airlines':'TK',
+#     'Ethiopian':'ET',
+#     'JAL':'JL',
+#     'Singapore Airlines':'SQ',
+#     'ANA':'NH',
+#     'Aer Lingus':'EI',
+#     'Finnair':'AY',
+#     'Kenya Airways':'KQ',
+#     'Iberia':'IB',
+#     'Vistara':'UK',
+#     'Air India':'AI',
+#     'Air Algerie':'AH',
+#     'Qatar Airways':'QR',
+#     'Tap Air Portugal':'TP',
+#     'Royal Air Maroc':'AT',
+#     'EVA Air':'BR',
+#     'Asiana':'OZ',
+#     'Etihad':'EY',
+#     'Korean Air':'KE',
+#     'Jeju Air':'7C',
+#     'Cayman Airways':'KX',
+#     'Evelop airlines':'E9',
+#     'JetBlue':'B6',
+#     'Kuwait Airways': 'KU',
+#     'SriLankan':'UL',
+#     'Alaska':'AS',
+#     'Oman Air':'WY'
+# }
 
 
 

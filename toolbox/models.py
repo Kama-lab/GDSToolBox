@@ -2,7 +2,7 @@ from django.db import models
 from django.core.validators import RegexValidator
 
 class Airline(models.Model):
-    only_alpha = RegexValidator(r'^[a-zA-Z]*$','Only letters are allowed')
+    only_alpha = RegexValidator(r'^[a-zA-Z\s]*$','Only letters are allowed')
     name = models.CharField(max_length=50,blank=False,null=False,validators=[only_alpha])
     code = models.CharField(max_length=2,blank=False,null=False)
     def save(self,force_insert=False,force_update=False):
