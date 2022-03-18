@@ -16,7 +16,7 @@ def create_connection(db_file):
     return conn
 
 
-def select_all(conn):
+def select_all(conn, name):
     """
     Query all rows in the tasks table
     :param conn: the Connection object
@@ -24,11 +24,12 @@ def select_all(conn):
     """
     cur = conn.cursor()
     cur.execute("SELECT * FROM toolbox_airline")
+    airlines = cur.fetchall()
+    for _,airline_name,airline_code in airlines:
+        if name == airline_name:
+            return airline_code
 
-    return cur.fetchall()
-
-
-def fetch_airline():
+def fetch_airline(airline_name):
     full_dir = '/'.join(os.path.dirname(__file__).split('/')[:-2])
     conn = create_connection(full_dir + "/db.sqlite3")
-    return select_all(conn)
+    return select_all(conn, airline_name)

@@ -1,13 +1,13 @@
 import re
 from .dbconnection import fetch_airline
-
-airlines = fetch_airline()
-print(airlines)
-airlines_list = {}
-for _,name,code in airlines:
-    airlines_list[name] = code
-
-
+#
+# airlines = fetch_airline()
+# print(airlines)
+# airlines_list = {}
+# for _,name,code in airlines:
+#     airlines_list[name] = code
+#
+# print(airlines_list)
 
 # airlines_list = {
 #     'American':'AA',
@@ -83,7 +83,8 @@ def contains_fl_details(flight_route,details):
         if info_order == 0 and airlines.search(line):
             try:
                 airlines_name, airlines_code = airlines.search(line).group(0).rsplit(' ',1)
-                airlines_name_code = airlines_list[airlines_name] + ' '*(4-len(airlines_code)) + str(airlines_code)
+                print(airlines_name)
+                airlines_name_code = fetch_airline(airlines_name) + ' '*(4-len(airlines_code)) + str(airlines_code)
                 if len(airlines_name_code) == 6:
                     info_order+=1
             except ValueError:
